@@ -61,7 +61,7 @@ class Split(beam.DoFn):
 
         return [{
             'remote_addr': element[0],
-            'timelocal': date_string,
+            'time_local': date_string,
             'request_type': element[2],
             'body_bytes_sent': element[3],
             'status': element[4],
