@@ -85,7 +85,7 @@ def main(argv=None):
       | "Decode" >> beam.Map(lambda x: x.decode('utf-8'))
       | "Clean Data" >> beam.Map(regex_clean)
       | 'ParseCSV' >> beam.ParDo(Split())
-      | 'WriteToBigQuery' >> beam.io.WriteToBigQuery('{0}:userlogs.logdata'.format(PROJECT), schema=schema,
+      | 'WriteToBigQuery' >> beam.io.WriteToBigQuery('{0}:stream_log.logdata'.format(PROJECT), schema=schema,
         write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND)
    )
    result = p.run()
